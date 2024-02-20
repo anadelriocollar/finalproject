@@ -17,11 +17,12 @@ This web application will allow users to share, explore books and participate in
 
 ### Use Cases
 
-- Search books
-- Add book to your list (read, want to read, reading)
-- Add friends (¿?)
-- Make like
-- Comments other's users comments (reviews, exchange intention)
+- search books
+- add book
+- add post
+- toggle like
+- add review to post 
+- save book to your list (read, want to read, reading)
 
 
 ## Views
@@ -31,7 +32,8 @@ Home:
 - Add book to your list (read, want to read, reading)
 - Add friends (¿?)
 - Make like
-- Comments other's users comments (reviews, exchange intention)
+- Comments other's users comments (reviews, 
+- exchange intention)
 
 My list book
 - See list: want to read,
@@ -61,7 +63,7 @@ Reading club (version II)
 ## Technical Description
 
 - Frontend: HTML, CSS, javascript, react, vite
-- Backend: nodejs, express, postman
+- Backend: nodejs, express
 - DDBB: mongodb
 - Testing: mocha and chai
 
@@ -73,21 +75,25 @@ User
 - email (string)
 - password (string)
 
-Books
+Book
 - id (string)
-- Title (string)
-- Author (string)
-- Year (number)
-- brand (string)
-- Type/Category
+- title (string)
+- author (string)
+- year (number)
+- publisher (string)
+- category (string, enum: ...))
+- isbn (string)
 
 Post
-- User
-- Name book
-- Author book
-- Likes
-- Comments
+- user (User.id)
+- book (Book.id)
+- likes (array of User.id)
 
-Comment
-- Exchange 
-- Review
+Review
+- user (User.id)
+- post (Post.id)
+- comment (string, required)
+- mark (number, enum : 1,2,3,4,5)
+- date (date)
+
+
