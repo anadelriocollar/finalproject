@@ -7,6 +7,9 @@ const ID_REGEX = /^[0-9A-Fa-f]{24}$/
 
 function text(text, explain) {
     if (typeof text !== 'string') throw new TypeError(explain + ' is not string')
+    // Check if the text is empty after trimming whitespace
+    // The trim() method is used to remove whitespace from both ends of a string
+    // This ensures that even if a user enters spaces or tabs, it's treated as an empty value
     if (!text.trim().length) throw new ContentError(explain + ' is empty')
 }
 
