@@ -2,12 +2,11 @@
 
 By Ana del Río
 
-
 # READ TOGETHER 📕📗📙
 
 ## Summary
 
-This web application will allow users to share, explore books and participate in book clubs. With an intuitive interface, it will encourage social interaction around a passion for reading, creating a community and facilitating the exchange of literary ideas.
+This web application will allow users to share and explore books. With an intuitive interface, it will encourage social interaction around a passion for reading, creating a community and facilitating the exchange of literary ideas.
 
 
 ![](https://media4.giphy.com/media/3otPonSG56cvNy9BNm/giphy.gif?cid=ecf05e47gvggq50e2f9prkuop2kzvw28umn3atjnaujhutd5&ep=v1_gifs_related&rid=giphy.gif&ct=g)
@@ -17,11 +16,12 @@ This web application will allow users to share, explore books and participate in
 
 ### Use Cases
 
-- Search books
-- Add book to your list (read, want to read, reading)
-- Add friends (¿?)
-- Make like
-- Comments other's users comments (reviews, exchange intention)
+- search books
+- add book
+- add post
+- toggle like
+- add review to post 
+- save book to your list (read, want to read, reading)
 
 
 ## Views
@@ -29,9 +29,10 @@ This web application will allow users to share, explore books and participate in
 Home: 
 - Search books
 - Add book to your list (read, want to read, reading)
-- Add friends (¿?)
 - Make like
 - Comments other's users comments (reviews, exchange intention)
+- Upload post
+- Add books in our DDBB
 
 My list book
 - See list: want to read,
@@ -39,31 +40,20 @@ My list book
 - See list:Saved
 - Search books
 
-Upload
-- Add books in our DDBB
-    - Scan books (react)
-- Upload post
-- Search books
 
 Profile: 
 - My profile
 - Change details users (password, user name)
 - View my books
 
-Reading club (version II)
-- Novel
-- Hystoric
-- Clasics 
-- Science fiction / fantasy
-- Change books 
 
     
 ## Technical Description
 
 - Frontend: HTML, CSS, javascript, react, vite
-- Backend: nodejs, express, postman
+- Backend: nodejs, express
 - DDBB: mongodb
-- Testing: mocha and chai
+- Testing: mocha and chai , postman
 
 ### Data Model
 
@@ -73,21 +63,25 @@ User
 - email (string)
 - password (string)
 
-Books
+Book
 - id (string)
-- Title (string)
-- Author (string)
-- Year (number)
-- brand (string)
-- Type/Category
+- title (string)
+- author (string)
+- year (number)
+- publisher (string)
+- category (string, enum: novel, hystoric, clasics, science-fiction-fantasy)
+- isbn (string)
 
 Post
-- User
-- Name book
-- Author book
-- Likes
-- Comments
+- user (User.id)
+- book (Book.id)
+- likes (array of User.id)
 
-Comment
-- Exchange 
-- Review
+Review
+- user (User.id)
+- post (Post.id)
+- comment (string, required)
+- mark (number, enum : 1,2,3,4,5)
+- date (date)
+
+
